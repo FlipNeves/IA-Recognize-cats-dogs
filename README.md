@@ -16,10 +16,10 @@ Para o treinamento dessa IA foi usado uma paste que contém 25 mil imagens, tant
 
 ## Como executar o projeto em flask
 Depois de toda a configuração necessária no projeto, para rodar um projeto python utilizando flask, vá ao terminal e execute:
-...
+. . .
 export FLASK_APP=predict_app.py
 flask run --host=0.0.0.0
-...
+. . . 
 
 Depois acesse o primeiro endereço apontado pelo terminal e acrescente : _/static/predict.html_
 
