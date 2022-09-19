@@ -1,6 +1,6 @@
 const Result = {
-	0: "Fresh",
-	1: "Rotten"
+	0: "Cat",
+	1: "Dog"
 };
 $("#image-selector").change(function () {
 	let reader = new FileReader();
@@ -17,7 +17,7 @@ $("#image-selector").change(function () {
 let model;
 $(document).ready(async function () {
 	$('.progress-bar').show();
-	model = await tf.loadGraphModel('model/model.json');
+	model = await tf.loadGraphModel('cnn-model/model.json');
 	$('.progress-bar').hide();
 });
 

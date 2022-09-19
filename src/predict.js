@@ -1,6 +1,6 @@
 const Result = {
-	0: "dog",
-	1: "cat",
+	0: "Gato",
+	1: "Cachorro",
 };
 //Carregamento da Imagem
 $("#image-selector").change(function () {
@@ -18,8 +18,10 @@ $("#image-selector").change(function () {
 //Carregamento do modelo
 let model;
 $(document).ready(async function () {
+	console.log('Modelo está começando a ser carregado');
 	$('.progress-bar').show();
-	model = await tf.loadGraphModel('model/cnn-model/model.json');
+	model = await tf.loadLayersModel('model/cnn-model/model.json');
+	console.log('Modelo?')
 	$('.progress-bar').hide();
 	console.log('Modelo carregado')
 });
@@ -35,6 +37,8 @@ $("#predictBtn").click(async function () {
 		.reverse(-1);
 	console.log("Iniciando classificação...")
 	let predict_result = await model.predict(pre_image).data();
+	// let predict_result = model.predict(
+	// 	tf.browser.fromPixels(image).cast('float32').data())
 	console.log(predict_result)
 	let order = Array.from(predict_result)
 		.map(function (p, i) {
