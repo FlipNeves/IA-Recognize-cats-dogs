@@ -1,12 +1,13 @@
 const Result = {
-	0: "Gato",
-	1: "Cachorro",
+	0: "Brita",
+	1: "Tijolo",
 };
 //Carregamento da Imagem
 $("#image-selector").change(function () {
 	let reader = new FileReader();
 	reader.onload = function () {
 		let dataURL = reader.result;
+		console.log(dataURL);
 		$("#selected-image").attr("src", dataURL);
 		$("#prediction-list").empty();
 	}
@@ -46,6 +47,7 @@ $("#predictBtn").click(async function () {
 		}).sort(function (a, b) {
 			return b.probability - a.probability;
 		}).slice(0, 1);
+		console.log(order);
 	$("#prediction-list").empty();
 	order.forEach(function (p) {
 		$("#prediction-list").append(`<li>${p.className}: ${parseInt(Math.trunc(p.probability * 100))} %</li>`);
